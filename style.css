@@ -3,4 +3,9 @@ body {
 	   and use the OS’s UI font as the website font
 	 */
     font: 100%/1.5 system-ui;
+    max-width: 100ch;          /* 限制內容寬度 */
+    margin-inline: auto;       /* 水平置中 */
+    padding-inline: 1rem;      /* 左右邊緣加入內距，提升在小螢幕時的可讀性 */
+    line-height: 1.6;          /* 增加行距讓文字更易讀 */
+    font-family: sans-serif; 
 }
