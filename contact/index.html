@@ -1,34 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact</title>
-  <base href="/portfolio/">
-  <link rel="stylesheet" href="style.css">
+  <base href="/portfolio/" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Contact</h1>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projects/index.html">Projects</a>
+      <a href="contact/index.html" class="current">Contact</a>
+      <a href="resume.html">Resume</a>
+      <a href="https://github.com/Yurea20726" target="_blank">Profile</a>
+    </nav>
+  </header>
 
-  <form action="mailto:meow@example.com" method="post" enctype="text/plain">
-    <label for="email">Email:</label>
-    <input id="email" name="email" type="email">
+  <main>
+    <h1>Contact</h1>
 
-    <label for="subject">Subject:</label>
-    <input id="subject" name="subject">
+    <form action="mailto:meow@example.com" method="post" enctype="text/plain">
+      <label for="email">Enter your email:</label>
+      <input id="email" name="email" type="email" />
 
-    <label for="body">Message:</label>
-    <textarea id="body" name="body" rows="4" cols="50"></textarea>
+      <label for="subject">Enter the subject:</label>
+      <input id="subject" name="subject" />
 
-    <button type="submit">Send</button>
-  </form>
+      <label for="body">Enter the body:</label>
+      <textarea id="body" name="body" rows="4" cols="50"></textarea>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="projects/index.html">Projects</a>
-    <a href="contact/index.html" class="current">Contact</a>
-    <a href="resume.html">Resume</a>
-    <a href="https://github.com/Yurea20726" target="_blank">Profile</a>
-  </nav>
+      <button type="submit">Submit</button>
+    </form>
+  </main>
+
+  <footer>
+    <hr />
+    <p>&copy; 2025 Chang-Yu Lee</p>
+  </footer>
 </body>
 </html>
+
