@@ -6,9 +6,9 @@ body {
   font-family: system-ui, sans-serif;
   font-size: 100%;
   line-height: 1.6;
-  max-width: 100ch;          /* 限制內容最大寬度 */
-  margin-inline: auto;       /* 水平置中 */
-  padding-inline: 1rem;      /* 左右邊距，讓小螢幕不會貼邊 */
+  max-width: 100ch;
+  margin-inline: auto;
+  padding-inline: 1rem;
 }
 
 /* 導覽列區域 */
@@ -16,11 +16,10 @@ nav {
   display: flex;
   justify-content: space-around;
   padding: 0.5rem;
-  border-bottom: 1px solid oklch(80% 3% 200); /* 淺灰色底線 */
+  border-bottom: 1px solid oklch(80% 3% 200);
   margin-bottom: 1rem;
 }
 
-/* 每個導覽連結 */
 nav a {
   flex: 1;
   text-align: center;
@@ -31,13 +30,41 @@ nav a {
   font-weight: bold;
 }
 
-/* 滑鼠 hover 過去時的效果 */
 nav a:hover {
   border-bottom: 3px solid var(--color-accent);
   background-color: oklch(from var(--color-accent) 95% 5% h);
 }
 
-/* 當前頁面的標記（使用 class="current"） */
 nav a.current {
   border-bottom: 3px solid var(--color-accent);
+}
+
+/* -------------------------- */
+/* 聯絡表單樣式 (Contact Form) */
+/* -------------------------- */
+
+form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
+  align-items: center;
+}
+
+label {
+  grid-column: 1;
+  margin-block: 0.25em;
+}
+
+input,
+textarea,
+button {
+  grid-column: 2;
+  width: 100%;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+button {
+  grid-column: 1 / -1; /* 跨越整列置中 */
+  padding: 0.5em;
 }
