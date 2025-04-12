@@ -1,95 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resume</title>
-  <base href="/portfolio/" />
-  <link rel="stylesheet" href="style.css" />
+  <base href="/portfolio/">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 100ch;
+      margin-inline: auto;
+      padding: 1rem;
+      line-height: 1.6;
+    }
+
+    header, section, footer {
+      margin-block: 2rem;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.5em;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      border-bottom: 2px solid oklch(80% 3% 200);
+      padding-bottom: 0.25em;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      padding-left: 1.5em;
+    }
+
+    li {
+      margin-bottom: 0.5em;
+    }
+
+    .section-block {
+      padding: 1rem;
+      border: 1px solid oklch(85% 3% 200);
+      border-radius: 0.5em;
+      background-color: oklch(98% 3% 0);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      padding: 0.5rem;
+      border-top: 1px solid oklch(80% 3% 200);
+      margin-top: 2rem;
+    }
+
+    nav a {
+      flex: 1;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      padding: 0.5rem;
+      border-top: 3px solid transparent;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      border-top: 3px solid var(--color-accent);
+      background-color: oklch(from var(--color-accent) 95% 5% h);
+    }
+
+    nav a.current {
+      border-top: 3px solid var(--color-accent);
+    }
+  </style>
 </head>
 <body>
   <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="projects/index.html">Projects</a>
-      <a href="contact/index.html">Contact</a>
-      <a href="resume.html" class="current">Resume</a>
-      <a href="https://github.com/Yurea20726" target="_blank">Profile</a>
-    </nav>
     <h1>Chang-Yu Lee</h1>
-    <p>Email: meow@example.com | Phone: (123) 456-7890 | Location: San Francisco, CA</p>
-    <hr />
+    <p>Email: meow@example.com<br>Phone: (123) 456-7890<br>Location: San Francisco, CA</p>
   </header>
 
-  <main>
-    <section>
-      <h2>Summary</h2>
-      <p>
-        Highly motivated data analyst with a strong background in Python, SQL,
-        and data visualization. Passionate about turning data into actionable
-        insights to drive strategic decision-making.
-      </p>
-    </section>
+  <section class="section-block">
+    <h2>Summary</h2>
+    <p>Highly motivated data analyst with a strong background in Python, SQL, and data visualization. Passionate about turning data into actionable insights to drive strategic decision-making.</p>
+  </section>
 
-    <section>
-      <h2>Education</h2>
-      <p>
-        <strong>University of California San Diego</strong><br />
-        B.S. in Data Science, Minor in Economics.
-      </p>
-    </section>
+  <section class="section-block">
+    <h2>Education</h2>
+    <p><strong>University of California San Diego</strong><br>B.S. in Data Science, Minor in Economics.</p>
+  </section>
 
-    <section>
-      <h2>Experience</h2>
+  <section class="section-block">
+    <h2>Experience</h2>
+    <p><strong>Fictional Tech Inc.</strong> — Data Analyst Intern<br>
+      <em>June 2023 – Aug 2023</em>
+    </p>
+    <ul>
+      <li>Developed a dashboard in Power BI to track sales performance</li>
+      <li>Cleaned and analyzed 10,000+ rows of customer data using Python and Pandas</li>
+    </ul>
 
-      <strong>Fictional Tech Inc.</strong> — Data Analyst Intern<br />
-      <em
-        ><time datetime="2023-06-01">June 2023</time> –
-        <time datetime="2023-08-01">Aug 2023</time></em
-      >
-      <ul>
-        <li>Developed a dashboard in Power BI to track sales performance</li>
-        <li>
-          Cleaned and analyzed 10,000+ rows of customer data using Python and
-          Pandas
-        </li>
-      </ul>
+    <p><strong>Campus Analytics Club</strong> — Project Lead<br>
+      <em>Sept 2022 – May 2023</em>
+    </p>
+    <ul>
+      <li>Led a team of 5 students to analyze student engagement using survey and LMS data</li>
+      <li>Presented findings to student affairs department with actionable recommendations</li>
+    </ul>
+  </section>
 
-      <strong>Campus Analytics Club</strong> — Project Lead<br />
-      <em
-        ><time datetime="2022-09-01">Sept 2022</time> –
-        <time datetime="2023-05-01">May 2023</time></em
-      >
-      <ul>
-        <li>
-          Led a team of 5 students to analyze student engagement using survey
-          and LMS data
-        </li>
-        <li>
-          Presented findings to student affairs department with actionable
-          recommendations
-        </li>
-      </ul>
-    </section>
+  <section class="section-block">
+    <h2>Skills</h2>
+    <ul>
+      <li>Programming: Python, SQL, R</li>
+      <li>Tools: Excel, Power BI, Tableau, Git</li>
+      <li>Soft Skills: Communication, Team Leadership, Problem-Solving</li>
+    </ul>
+  </section>
 
-    <section>
-      <h2>Skills</h2>
-      <ul>
-        <li>Programming: Python, SQL, R</li>
-        <li>Tools: Excel, Power BI, Tableau, Git</li>
-        <li>Soft Skills: Communication, Team Leadership, Problem-Solving</li>
-      </ul>
-    </section>
+  <section class="section-block">
+    <h2>Projects</h2>
+    <p><strong>Movie Recommendation System</strong><br>
+    Built a movie recommender using collaborative filtering and deployed with Streamlit.</p>
 
-    <section>
-      <h2>Projects</h2>
-      <p><strong>Movie Recommendation System</strong><br />Built a movie recommender using collaborative filtering and deployed with Streamlit.</p>
-      <p><strong>Financial Dashboard</strong><br />Created an interactive dashboard to visualize stock market trends over 10 years.</p>
-    </section>
-  </main>
+    <p><strong>Financial Dashboard</strong><br>
+    Created an interactive dashboard to visualize stock market trends over 10 years.</p>
+  </section>
 
   <footer>
-    <hr />
     <p>&copy; 2025 Chang-Yu Lee</p>
   </footer>
+
+  <nav>
+    <a href="index.html">Home Page</a>
+    <a href="projects/index.html">Projects</a>
+    <a href="contact/index.html">Contact</a>
+    <a href="resume.html" class="current">Resume</a>
+    <a href="https://github.com/Yurea20726" target="_blank">Profile</a>
+  </nav>
 </body>
 </html>
