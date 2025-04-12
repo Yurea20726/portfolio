@@ -1,11 +1,43 @@
+:root {
+  --color-accent: oklch(65% 50% 0); /* 自訂主題色，可自由更換 */
+}
+
 body {
-    /* Set line height to 1.5 times the font size
-	   and use the OS’s UI font as the website font
-	 */
-    font: 100%/1.5 system-ui;
-    max-width: 100ch;          /* 限制內容寬度 */
-    margin-inline: auto;       /* 水平置中 */
-    padding-inline: 1rem;      /* 左右邊緣加入內距，提升在小螢幕時的可讀性 */
-    line-height: 1.6;          /* 增加行距讓文字更易讀 */
-    font-family: sans-serif; 
+  font-family: system-ui, sans-serif;
+  font-size: 100%;
+  line-height: 1.6;
+  max-width: 100ch;          /* 限制內容最大寬度 */
+  margin-inline: auto;       /* 水平置中 */
+  padding-inline: 1rem;      /* 左右邊距，讓小螢幕不會貼邊 */
+}
+
+/* 導覽列區域 */
+nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem;
+  border-bottom: 1px solid oklch(80% 3% 200); /* 淺灰色底線 */
+  margin-bottom: 1rem;
+}
+
+/* 每個導覽連結 */
+nav a {
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  padding: 0.5rem;
+  border-bottom: 3px solid transparent;
+  font-weight: bold;
+}
+
+/* 滑鼠 hover 過去時的效果 */
+nav a:hover {
+  border-bottom: 3px solid var(--color-accent);
+  background-color: oklch(from var(--color-accent) 95% 5% h);
+}
+
+/* 當前頁面的標記（使用 class="current"） */
+nav a.current {
+  border-bottom: 3px solid var(--color-accent);
 }
