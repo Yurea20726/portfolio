@@ -75,6 +75,7 @@ button{ grid-column:1 / -1; padding:.5em; }
 
 /* ===== Resume 內容區塊 ===== */
 .section-block{
+  margin-block-end: 2rem;
   padding:1rem;
   border:1px solid var(--border-color);
   border-radius:.5em;
