@@ -6,95 +6,16 @@
   <title>Projects</title>
   <base href="/portfolio/" />
   <link rel="stylesheet" href="style.css" />
+
   <style>
     :root {
       --color-accent: oklch(65% 50% 0);
     }
-
-    body {
-      font-family: system-ui, sans-serif;
-      font-size: 100%;
-      line-height: 1.6;
-      max-width: 100ch;
-      margin-inline: auto;
-      padding-inline: 1rem;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-around;
-      padding: 0.5rem;
-      border-bottom: 1px solid oklch(80% 3% 200);
-      margin-bottom: 1rem;
-    }
-
-    nav a {
-      flex: 1;
-      text-align: center;
-      text-decoration: none;
-      color: inherit;
-      padding: 0.5rem;
-      border-bottom: 3px solid transparent;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      border-bottom: 3px solid var(--color-accent);
-      background-color: oklch(from var(--color-accent) 95% 5% h);
-    }
-
-    nav a.current {
-      border-bottom: 3px solid var(--color-accent);
-    }
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-      gap: 1em;
-      margin-block: 2em;
-    }
-
-    .projects article {
-      display: grid;
-      grid-template-rows: subgrid;
-      grid-row: span 3;
-      padding: 1em;
-      border: 1px solid oklch(85% 3% 200);
-      border-radius: 0.5em;
-      background-color: oklch(98% 3% 0);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .projects article:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .projects article h2 {
-      margin: 0;
-      font-size: 1.2em;
-      line-height: 1.2;
-      text-wrap: balance;
-    }
-
-    .projects article img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 0.25em;
-    }
-
-    h1 {
-      font-size: 2.5em;
-      line-height: 1.1;
-      text-wrap: balance;
-    }
-
-    h2 {
-      font-size: 1.5em;
-      line-height: 1.2;
-      text-wrap: balance;
-    }
+    /* ...你原本的 CSS ... */
   </style>
+
+  <!-- 全站共用的 JavaScript -->
+  <script type="module" src="global.js"></script>
 </head>
 <body>
   <header>
@@ -110,66 +31,7 @@
   <main>
     <h1>Projects</h1>
     <section class="projects">
-      <article>
-        <h2>Project One</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Placeholder" />
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      </article>
-      <article>
-        <h2>Data Dashboard</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Placeholder" />
-        <p>Repellat libero quasi minus exercitationem temporibus blanditiis.</p>
-      </article>
-      <article>
-        <h2>Visualization Toolkit</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Placeholder" />
-        <p>Illo eligendi aliquam sequi distinctio molestiae eaque.</p>
-      </article>
-      <article>
-        <h2>Machine Learning App</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Placeholder" />
-        <p>Laborum officiis beatae tenetur quos at facilis.</p>
-      </article>
-      <article>
-        <h2>Student Survey Analysis</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Placeholder" />
-        <p>Molestias error suscipit labore assumenda reprehenderit esse.</p>
-      </article>
-      <article>
-        <h2>Sales Forecasting</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Placeholder" />
-        <p>Sint natus inventore quidem quas dolore officia.</p>
-      </article>
-      <article>
-        <h2>Interactive Map</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Placeholder" />
-        <p>Quidem a illum eveniet tempora nulla deserunt.</p>
-      </article>
-      <article>
-        <h2>Sports Analytics</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Placeholder" />
-        <p>Quisquam voluptates maiores voluptate omnis explicabo?</p>
-      </article>
-      <article>
-        <h2>Financial Explorer</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Placeholder" />
-        <p>Aut dolorem nihil voluptatum maxime velit quia.</p>
-      </article>
-      <article>
-        <h2>COVID Data Tracker</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Placeholder" />
-        <p>Quasi neque ullam aperiam voluptatibus tenetur rem.</p>
-      </article>
-      <article>
-        <h2>Bubble Tea Finder</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Placeholder" />
-        <p>Est tempora impedit error voluptatum praesentium vel.</p>
-      </article>
-      <article>
-        <h2>Portfolio Generator</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Placeholder" />
-        <p>Deleniti exercitationem fuga expedita ex minus modi.</p>
-      </article>
+      <!-- ...你的 project article 列表 ... -->
     </section>
   </main>
 
