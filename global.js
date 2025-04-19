@@ -1,8 +1,7 @@
 // global.js
 console.log("IT’S ALIVE!");
 
-/* ================= 1. 導覽列 ================= */
-
+/* ===== 1. 導覽列 ===== */
 const pages = [
   { url: '',            title: 'Home' },
   { url: 'projects/',   title: 'Projects' },
@@ -14,7 +13,7 @@ const pages = [
 const BASE_PATH =
   (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
     ? '/'
-    : '/portfolio/';         // ← 若 repo 名不同請改這裡
+    : '/portfolio/';            // ← GitHub Pages 路徑
 
 const nav = document.createElement('nav');
 document.body.prepend(nav);
@@ -25,10 +24,7 @@ for (const p of pages) {
   a.href = href;
   a.textContent = p.title;
 
-  if (a.host !== location.host) {      // 外部連結
-    a.target = '_blank';
-    a.rel    = 'noopener';
-  }
+  if (a.host !== location.host) { a.target = '_blank'; a.rel = 'noopener'; }
 
   const same =
     new URL(a.href).pathname.replace(/index\.html$/, '') ===
@@ -38,9 +34,8 @@ for (const p of pages) {
   nav.append(a);
 }
 
-/* ================= 2. 主題切換 ================= */
-
-/* 2‑1  建立標籤 + 下拉選單 (class=\"color-scheme\") */
+/* ===== 2. 主題切換 (Auto / Light / Dark) ===== */
+// 2‑1  插入 UI
 const label = document.createElement('label');
 label.className = 'color-scheme';
 label.innerHTML = `
@@ -49,33 +44,33 @@ label.innerHTML = `
     <option value="auto">Automatic</option>
     <option value="light">Light</option>
     <option value="dark">Dark</option>
-  </select>
-`;
-document.body.prepend(label);          // 插到 <body> 最前（在 nav 之前）
+  </select>`;
+document.body.prepend(label);
 
 const select = document.getElementById('theme-select');
 
-/* 2‑2  讀 localStorage，初始套用 */
+// 2‑2  初始：讀 localStorage
 const saved = localStorage.getItem('theme') || 'auto';
 select.value = saved;
 applyTheme(saved);
 
-/* 2‑3  監聽選單變動 */
+// 2‑3  事件監聽
 select.addEventListener('input', e => {
-  const mode = e.target.value;         // auto | light | dark
+  const mode = e.target.value;            // auto | light | dark
   localStorage.setItem('theme', mode);
   applyTheme(mode);
 });
 
-/* 2‑4  主題應用函式 */
+// 2‑4  主題套用
 function applyTheme(mode) {
   const root = document.documentElement;
 
-  root.style.colorScheme = '';         // 先清空
+  // 先清空
+  root.style.removeProperty('color-scheme');
   root.removeAttribute('data-theme');
 
   if (mode !== 'auto') {
-    root.style.colorScheme = mode;     // 強制 light / dark
-    root.setAttribute('data-theme', mode);
+    root.style.setProperty('color-scheme', mode); // 強制
+    root.setAttribute('data-theme', mode);        // 若 CSS 需要
   }
 }

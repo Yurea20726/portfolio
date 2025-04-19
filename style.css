@@ -1,44 +1,30 @@
 /* ========= 全局設定 ========= */
-
-/* 同時宣告 light & dark，讓瀏覽器依作業系統自動切換 */
-:root {
+:root{
   color-scheme: light dark;
-
-  /* 主題色（保持不變）*/
   --color-accent : oklch(65% 50% 0);
-
-  /* 會隨暗 / 亮模式顯示得差不多的邊框色 */
   --border-color : oklch(50% 10% 200 / 40%);
 }
 
-body {
-  font-family : system-ui, sans-serif;
-  font-size   : 100%;
-  line-height : 1.6;
-  max-width   : 100ch;
-  margin-inline : auto;
-  padding-inline: 1rem;
-
-  /* 使用 canvas / canvastext 確保暗色對比足夠 */
-  background-color : canvas;
-  color            : canvastext;
+body{
+  font-family:system-ui,sans-serif;
+  font-size:100%;
+  line-height:1.6;
+  max-width:100ch;
+  margin-inline:auto;
+  padding-inline:1rem;
+  background-color:canvas;
+  color:canvastext;
 }
 
-/* ========= Dark‑mode switch（右上角） ========= */
-
+/* ========= Dark‑mode switch ========= */
 .color-scheme{
-  position:absolute;
-  top:1rem; right:1rem;
-
-  font-size:0.9rem;               /* 稍小一點 */
-  font-family:inherit;            /* 沿用系統字體 */
+  position:absolute; top:1rem; right:1rem;
+  font-size:.9rem; font-family:inherit;
   display:flex; gap:.25em; align-items:center;
 }
-
 .color-scheme select{ font:inherit; }
 
 /* ========= 導覽列 ========= */
-
 nav{
   display:flex; justify-content:space-around;
   padding:.5rem; margin-bottom:1rem;
@@ -49,47 +35,50 @@ nav a{
   color:inherit; padding:.5rem; font-weight:bold;
   border-bottom:3px solid transparent;
 }
-
 nav a:hover{
   border-bottom:3px solid var(--color-accent);
   background-color:color-mix(in oklch,var(--color-accent),canvas 85%);
 }
-
 nav a.current{ border-bottom:3px solid var(--color-accent); }
 
-/* ========= 聯絡表單 ========= */
-
+/* ========= Contact form ========= */
 form{ display:grid; grid-template-columns:auto 1fr; gap:1em; align-items:center; }
 label{ grid-column:1; margin-block:.25em; }
-
-input,textarea,button{
-  grid-column:2; width:100%; font:inherit; box-sizing:border-box;
-}
-
+input,textarea,button{ grid-column:2;width:100%;font:inherit;box-sizing:border-box; }
 button{ grid-column:1 / -1; padding:.5em; }
 
 /* ========= Projects 卡片 ========= */
-
 .projects{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(15em,1fr));
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(15em,1fr));
   gap:1em; margin-block:2em;
 }
-
 .projects article{
   display:grid; grid-template-rows:subgrid; grid-row:span 3;
   padding:1em;
   border:1px solid var(--border-color);
   border-radius:.5em;
   background-color:oklch(98% 3% 0 / .9);
-  transition:transform .2s ease, box-shadow .2s ease;
+  transition:transform .2s ease,box-shadow .2s ease;
 }
 .projects article:hover{
   transform:translateY(-4px);
-  box-shadow:0 4px 12px rgba(0 0 0 / .15);
+  box-shadow:0 4px 12px rgb(0 0 0 / .15);
 }
-.projects article h2{ margin:0; font-size:1.2em; line-height:1.2; text-wrap:balance; }
+.projects article h2{ margin:0;font-size:1.2em;line-height:1.2;text-wrap:balance; }
 .projects article img{ max-width:100%; height:auto; }
 
 h1{ font-size:2.5em; line-height:1.1; text-wrap:balance; }
 h2{ font-size:1.5em; line-height:1.2; text-wrap:balance; }
+
+/* ========= Resume 內容區塊 ========= */
+.section-block{
+  padding:1rem;
+  border:1px solid var(--border-color);
+  border-radius:.5em;
+
+  /* 90% 系統背景 + 10% 主題色：亮色微粉紅，暗色微灰粉 */
+  background-color:color-mix(in oklch, canvas 90%, var(--color-accent) 10%);
+}
+
+/* 深色下保證文字對比 */
+[data-theme='dark'] .section-block{ color:canvastext; }
