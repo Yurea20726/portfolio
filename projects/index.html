@@ -66,4 +66,45 @@
       transform: translateY(-4px);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
-    .projects article h2
+    .projects article h2 {
+      margin: 0;
+      font-size: 1.2em;
+      line-height: 1.2;
+      text-wrap: balance;
+    }
+    .projects article img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 0.25em;
+    }
+    h1 { font-size: 2.5em; line-height: 1.1; text-wrap: balance; }
+    h2 { font-size: 1.5em; line-height: 1.2; text-wrap: balance; }
+  </style>
+
+  <!-- 全站共用 JS：會自動建立 <nav> 並標記 current -->
+  <script type="module" src="../global.js"></script>
+</head>
+<body>
+  <header>
+    <!-- nav 會由 global.js 動態插入，這裡留空即可 -->
+  </header>
+
+  <main>
+    <h1>Projects</h1>
+    <section class="projects">
+      <!-- 你的 project 內容保留原狀 -->
+      <article>
+        <h2>Project One</h2>
+        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Placeholder" />
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </article>
+      <!-- 其餘 articles ... -->
+    </section>
+  </main>
+
+  <footer>
+    <hr />
+    <p>&copy; 2025 Chang‑Yu Lee</p>
+  </footer>
+</body>
+</html>
