@@ -1,5 +1,14 @@
+/* ========= 全局設定 ========= */
+
+/* 同時宣告 light & dark，讓瀏覽器依作業系統自動切換 */
 :root {
-  --color-accent: oklch(65% 50% 0); /* 自訂主題色，可自由更換 */
+  color-scheme: light dark;
+
+  /* 主題色（保持不變）*/
+  --color-accent: oklch(65% 50% 0);
+
+  /* 會隨暗 / 亮模式顯示得差不多的邊框色 */
+  --border-color: oklch(50% 10% 200 / 40%);
 }
 
 body {
@@ -9,14 +18,19 @@ body {
   max-width: 100ch;
   margin-inline: auto;
   padding-inline: 1rem;
+
+  /* 使用系統 canvas / canvastext，確保字色與背景在 dark mode 仍對比充足 */
+  background-color: canvas;
+  color: canvastext;
 }
 
-/* 導覽列區域 */
+/* ========= 導覽列 ========= */
+
 nav {
   display: flex;
   justify-content: space-around;
   padding: 0.5rem;
-  border-bottom: 1px solid oklch(80% 3% 200);
+  border-bottom: 1px solid var(--border-color);   /* ← 改用變數 */
   margin-bottom: 1rem;
 }
 
@@ -30,18 +44,17 @@ nav a {
   font-weight: bold;
 }
 
+/* hover 背景用 color‑mix() 混入 canvas 色，暗色也不會炸亮 */
 nav a:hover {
   border-bottom: 3px solid var(--color-accent);
-  background-color: oklch(from var(--color-accent) 95% 5% h);
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
 
 nav a.current {
   border-bottom: 3px solid var(--color-accent);
 }
 
-/* -------------------------- */
-/* 聯絡表單樣式 (Contact Form) */
-/* -------------------------- */
+/* ========= 聯絡表單 ========= */
 
 form {
   display: grid;
@@ -50,10 +63,7 @@ form {
   align-items: center;
 }
 
-label {
-  grid-column: 1;
-  margin-block: 0.25em;
-}
+label { grid-column: 1; margin-block: 0.25em; }
 
 input,
 textarea,
@@ -65,9 +75,11 @@ button {
 }
 
 button {
-  grid-column: 1 / -1; /* 跨越整列置中 */
+  grid-column: 1 / -1;
   padding: 0.5em;
 }
+
+/* ========= Projects 卡片 ========= */
 
 .projects {
   display: grid;
@@ -81,9 +93,15 @@ button {
   grid-template-rows: subgrid;
   grid-row: span 3;
   padding: 1em;
-  border: 1px solid oklch(85% 3% 200);
+  border: 1px solid var(--border-color);          /* 同樣用變數 */
   border-radius: 0.5em;
-  background-color: oklch(98% 3% 0);
+  background-color: oklch(98% 3% 0 / 0.9);        /* 微透明，暗色下較柔 */
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.projects article:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0 0 0 / .15);
 }
 
 .projects article h2 {
@@ -98,14 +116,5 @@ button {
   height: auto;
 }
 
-h1 {
-  font-size: 2.5em;
-  line-height: 1.1;
-  text-wrap: balance;
-}
-
-h2 {
-  font-size: 1.5em;
-  line-height: 1.2;
-  text-wrap: balance;
-}
+h1 { font-size: 2.5em; line-height: 1.1; text-wrap: balance; }
+h2 { font-size: 1.5em; line-height: 1.2; text-wrap: balance; }
