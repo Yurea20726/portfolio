@@ -1,74 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Resume</title>
 
-  <link rel="stylesheet" href="style.css">
+  <!-- 外部共用 CSS -->
+  <link rel="stylesheet" href="style.css" />
 
-  <style>
-    body {
-      font-family: system-ui, sans-serif;
-      max-width: 100ch;
-      margin-inline: auto;
-      padding: 1rem;
-      line-height: 1.6;
-    }
-    header, section, footer { margin-block: 2rem; }
-    h1 { font-size: 2.5em; margin-bottom: 0.5em; }
-    h2 {
-      font-size: 1.5em;
-      border-bottom: 2px solid oklch(80% 3% 200);
-      padding-bottom: 0.25em;
-      margin-bottom: 1rem;
-    }
-    ul { padding-left: 1.5em; }
-    li { margin-bottom: 0.5em; }
-
-    .section-block {
-      padding: 1rem;
-      border: 1px solid oklch(85% 3% 200);
-      border-radius: 0.5em;
-      background-color: oklch(98% 3% 0);
-    }
-
-    /* nav 樣式仍然保留給 global.js 動態插入的導覽列使用 */
-    nav {
-      display: flex;
-      justify-content: space-around;
-      padding: 0.5rem;
-      border-top: 1px solid oklch(80% 3% 200);
-      margin-top: 2rem;
-    }
-    nav a {
-      flex: 1;
-      text-align: center;
-      text-decoration: none;
-      color: inherit;
-      padding: 0.5rem;
-      border-top: 3px solid transparent;
-      font-weight: bold;
-    }
-    nav a:hover {
-      border-top: 3px solid var(--color-accent);
-      background-color: oklch(from var(--color-accent) 95% 5% h);
-    }
-    nav a.current { border-top: 3px solid var(--color-accent); }
-  </style>
-
-  <!-- 全站共用 JS：會動態插入 <nav> 並標記 current -->
+  <!-- 全站共用 JS -->
   <script type="module" src="global.js"></script>
 </head>
 <body>
-  <header>
-    <h1>Chang‑Yu Lee</h1>
-    <p>
-      Email: meow@example.com<br>
-      Phone: (123) 456‑7890<br>
-      Location: San Francisco, CA
-    </p>
-  </header>
+
+  <!-- nav 由 global.js 動態插入 -->
+
+  <h1>Chang‑Yu Lee</h1>
+  <p>Email: meow@example.com<br>
+     Phone: (123) 456‑7890<br>
+     Location: San Francisco, CA</p>
 
   <section class="section-block">
     <h2>Summary</h2>
@@ -77,27 +27,24 @@
 
   <section class="section-block">
     <h2>Education</h2>
-    <p><strong>University of California San Diego</strong><br>B.S. in Data Science, Minor in Economics.</p>
+    <p><strong>University of California San Diego</strong><br>
+       B.S. in Data Science, Minor in Economics.</p>
   </section>
 
   <section class="section-block">
     <h2>Experience</h2>
-    <p><strong>Founder &amp; Owner</strong> — Local Construction Company<br><em>Hometown, Ongoing</em></p>
+    <p><strong>Founder & Owner</strong> — Local Construction Company<br>
+       <em>Hometown, Ongoing</em></p>
     <ul>
       <li>Founded and manage a construction business in my hometown</li>
-      <li>Exploring data‑science methods to expand operations and optimize logistics</li>
+      <li>Exploring data‑science methods to expand operations and optimize logistics and project management</li>
     </ul>
 
-    <p><strong>Private Tutor</strong><br><em>High School Level</em></p>
+    <p><strong>Private Tutor</strong><br>
+       <em>High School Level</em></p>
     <ul>
       <li>Provided one‑on‑one tutoring in physics and mathematics</li>
       <li>Helped students improve exam performance through customized lesson plans</li>
-    </ul>
-
-    <p><strong>Language Skills &amp; Trade Experience</strong></p>
-    <ul>
-      <li>Fluent in Japanese, including business‑level communication</li>
-      <li>Experience in wholesale product distribution and logistics</li>
     </ul>
   </section>
 
@@ -106,19 +53,19 @@
     <ul>
       <li>Programming: Python, SQL, R</li>
       <li>Tools: Excel, Power BI, Tableau, Git</li>
-      <li>Soft Skills: Communication, Team Leadership, Problem‑Solving</li>
+      <li>Soft Skills: Communication, Team Leadership, Problem‑Solving</li>
     </ul>
   </section>
 
   <section class="section-block">
     <h2>Projects</h2>
-    <p><strong>Movie Recommendation System</strong><br>Built a movie recommender using collaborative filtering and deployed with Streamlit.</p>
-    <p><strong>Financial Dashboard</strong><br>Created an interactive dashboard to visualize stock‑market trends over 10 years.</p>
+    <p><strong>Movie Recommendation System</strong> — Built a movie recommender using collaborative filtering and deployed with Streamlit.</p>
+    <p><strong>Financial Dashboard</strong> — Created an interactive dashboard to visualize stock market trends over 10 years.</p>
   </section>
 
   <footer>
+    <hr />
     <p>&copy; 2025 Chang‑Yu Lee</p>
   </footer>
 </body>
 </html>
-

@@ -1,33 +1,28 @@
 /* ========= 全局設定 ========= */
 :root{
-  color-scheme: light dark;
+  color-scheme : light dark;
   --color-accent : oklch(65% 50% 0);
   --border-color : oklch(50% 10% 200 / 40%);
 
-  /* 卡片 / 內容區塊　亮色預設背景（偏淺粉）*/
-  --card-bg : color-mix(in oklch, canvas 90%, var(--color-accent) 10%);
+  /* 卡片 / 區塊統一背景變數 */
+  --card-bg-light : color-mix(in oklch, canvas 90%, var(--color-accent) 10%);
+  --card-bg-dark  : color-mix(in oklch, canvas 75%, var(--color-accent) 25%);
+  --card-bg       : var(--card-bg-light);          /* 預設亮色 */
 }
 
-/* 深色：卡片背景再深一點 (75 : 25) */
-@media (prefers-color-scheme: dark){
-  :root{ --card-bg : color-mix(in oklch, canvas 75%, var(--color-accent) 25%); }
-}
-/* 若用下拉選單強制theme=dark / light */
-[data-theme='dark'] { --card-bg : color-mix(in oklch, canvas 75%, var(--color-accent) 25%); }
-[data-theme='light']{ --card-bg : color-mix(in oklch, canvas 90%, var(--color-accent) 10%); }
+/* 系統暗色 or 手動 theme=dark → 換深粉 */
+@media (prefers-color-scheme: dark){ :root{ --card-bg : var(--card-bg-dark); } }
+[data-theme='dark'] { --card-bg : var(--card-bg-dark); }
+[data-theme='light']{ --card-bg : var(--card-bg-light); }
 
 body{
   font-family:system-ui,sans-serif;
-  font-size:100%;
-  line-height:1.6;
-  max-width:100ch;
-  margin-inline:auto;
-  padding-inline:1rem;
-  background-color:canvas;
-  color:canvastext;
+  font-size:100%; line-height:1.6;
+  max-width:100ch; margin-inline:auto; padding-inline:1rem;
+  background-color:canvas; color:canvastext;
 }
 
-/* ========= Dark‑mode switch ========= */
+/* ===== Dark‑mode switch (固定右上) ===== */
 .color-scheme{
   position:absolute; top:1rem; right:1rem;
   font-size:.9rem; font-family:inherit;
@@ -35,7 +30,7 @@ body{
 }
 .color-scheme select{ font:inherit; }
 
-/* ========= 導覽列 ========= */
+/* ===== 導覽列 ===== */
 nav{
   display:flex; justify-content:space-around;
   padding:.5rem; margin-bottom:1rem;
@@ -52,13 +47,13 @@ nav a:hover{
 }
 nav a.current{ border-bottom:3px solid var(--color-accent); }
 
-/* ========= Contact form ========= */
+/* ===== Contact form ===== */
 form{ display:grid; grid-template-columns:auto 1fr; gap:1em; align-items:center; }
 label{ grid-column:1; margin-block:.25em; }
-input,textarea,button{ grid-column:2;width:100%;font:inherit;box-sizing:border-box; }
+input,textarea,button{ grid-column:2; width:100%; font:inherit; box-sizing:border-box; }
 button{ grid-column:1 / -1; padding:.5em; }
 
-/* ========= Projects 卡片 ========= */
+/* ===== Projects 卡片 ===== */
 .projects{
   display:grid; grid-template-columns:repeat(auto-fill,minmax(15em,1fr));
   gap:1em; margin-block:2em;
@@ -68,8 +63,8 @@ button{ grid-column:1 / -1; padding:.5em; }
   padding:1em;
   border:1px solid var(--border-color);
   border-radius:.5em;
-  background-color:var(--card-bg);               /* ❶ 改用變數 */
-  transition:transform .2s ease,box-shadow .2s ease;
+  background-color:var(--card-bg);         /* 只用變數！ */
+  transition:transform .2s ease, box-shadow .2s ease;
 }
 .projects article:hover{
   transform:translateY(-4px);
@@ -78,13 +73,13 @@ button{ grid-column:1 / -1; padding:.5em; }
 .projects article h2{ margin:0;font-size:1.2em;line-height:1.2;text-wrap:balance; }
 .projects article img{ max-width:100%; height:auto; }
 
-/* ========= Resume 內容區塊 ========= */
+/* ===== Resume 內容區塊 ===== */
 .section-block{
   padding:1rem;
   border:1px solid var(--border-color);
   border-radius:.5em;
-  background-color:var(--card-bg);               /* ❷ 同樣用變數 */
-  color:canvastext;                              /* 保證對比 */
+  background-color:var(--card-bg);         /* 與卡片統一 */
+  color:canvastext;
 }
 
 h1{ font-size:2.5em; line-height:1.1; text-wrap:balance; }
