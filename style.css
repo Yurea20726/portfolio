@@ -3,7 +3,18 @@
   color-scheme: light dark;
   --color-accent : oklch(65% 50% 0);
   --border-color : oklch(50% 10% 200 / 40%);
+
+  /* 卡片 / 內容區塊　亮色預設背景（偏淺粉）*/
+  --card-bg : color-mix(in oklch, canvas 90%, var(--color-accent) 10%);
 }
+
+/* 深色：卡片背景再深一點 (75 : 25) */
+@media (prefers-color-scheme: dark){
+  :root{ --card-bg : color-mix(in oklch, canvas 75%, var(--color-accent) 25%); }
+}
+/* 若用下拉選單強制theme=dark / light */
+[data-theme='dark'] { --card-bg : color-mix(in oklch, canvas 75%, var(--color-accent) 25%); }
+[data-theme='light']{ --card-bg : color-mix(in oklch, canvas 90%, var(--color-accent) 10%); }
 
 body{
   font-family:system-ui,sans-serif;
@@ -57,7 +68,7 @@ button{ grid-column:1 / -1; padding:.5em; }
   padding:1em;
   border:1px solid var(--border-color);
   border-radius:.5em;
-  background-color:oklch(98% 3% 0 / .9);
+  background-color:var(--card-bg);               /* ❶ 改用變數 */
   transition:transform .2s ease,box-shadow .2s ease;
 }
 .projects article:hover{
@@ -67,18 +78,14 @@ button{ grid-column:1 / -1; padding:.5em; }
 .projects article h2{ margin:0;font-size:1.2em;line-height:1.2;text-wrap:balance; }
 .projects article img{ max-width:100%; height:auto; }
 
-h1{ font-size:2.5em; line-height:1.1; text-wrap:balance; }
-h2{ font-size:1.5em; line-height:1.2; text-wrap:balance; }
-
 /* ========= Resume 內容區塊 ========= */
 .section-block{
   padding:1rem;
   border:1px solid var(--border-color);
   border-radius:.5em;
-
-  /* 90% 系統背景 + 10% 主題色：亮色微粉紅，暗色微灰粉 */
-  background-color:color-mix(in oklch, canvas 90%, var(--color-accent) 10%);
+  background-color:var(--card-bg);               /* ❷ 同樣用變數 */
+  color:canvastext;                              /* 保證對比 */
 }
 
-/* 深色下保證文字對比 */
-[data-theme='dark'] .section-block{ color:canvastext; }
+h1{ font-size:2.5em; line-height:1.1; text-wrap:balance; }
+h2{ font-size:1.5em; line-height:1.2; text-wrap:balance; }
