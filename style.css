@@ -5,116 +5,91 @@
   color-scheme: light dark;
 
   /* 主題色（保持不變）*/
-  --color-accent: oklch(65% 50% 0);
+  --color-accent : oklch(65% 50% 0);
 
   /* 會隨暗 / 亮模式顯示得差不多的邊框色 */
-  --border-color: oklch(50% 10% 200 / 40%);
+  --border-color : oklch(50% 10% 200 / 40%);
 }
 
 body {
-  font-family: system-ui, sans-serif;
-  font-size: 100%;
-  line-height: 1.6;
-  max-width: 100ch;
-  margin-inline: auto;
+  font-family : system-ui, sans-serif;
+  font-size   : 100%;
+  line-height : 1.6;
+  max-width   : 100ch;
+  margin-inline : auto;
   padding-inline: 1rem;
 
-  /* 使用系統 canvas / canvastext，確保字色與背景在 dark mode 仍對比充足 */
-  background-color: canvas;
-  color: canvastext;
+  /* 使用 canvas / canvastext 確保暗色對比足夠 */
+  background-color : canvas;
+  color            : canvastext;
 }
+
+/* ========= Dark‑mode switch（右上角） ========= */
+
+.color-scheme{
+  position:absolute;
+  top:1rem; right:1rem;
+
+  font-size:0.9rem;               /* 稍小一點 */
+  font-family:inherit;            /* 沿用系統字體 */
+  display:flex; gap:.25em; align-items:center;
+}
+
+.color-scheme select{ font:inherit; }
 
 /* ========= 導覽列 ========= */
 
-nav {
-  display: flex;
-  justify-content: space-around;
-  padding: 0.5rem;
-  border-bottom: 1px solid var(--border-color);   /* ← 改用變數 */
-  margin-bottom: 1rem;
+nav{
+  display:flex; justify-content:space-around;
+  padding:.5rem; margin-bottom:1rem;
+  border-bottom:1px solid var(--border-color);
+}
+nav a{
+  flex:1; text-align:center; text-decoration:none;
+  color:inherit; padding:.5rem; font-weight:bold;
+  border-bottom:3px solid transparent;
 }
 
-nav a {
-  flex: 1;
-  text-align: center;
-  text-decoration: none;
-  color: inherit;
-  padding: 0.5rem;
-  border-bottom: 3px solid transparent;
-  font-weight: bold;
+nav a:hover{
+  border-bottom:3px solid var(--color-accent);
+  background-color:color-mix(in oklch,var(--color-accent),canvas 85%);
 }
 
-/* hover 背景用 color‑mix() 混入 canvas 色，暗色也不會炸亮 */
-nav a:hover {
-  border-bottom: 3px solid var(--color-accent);
-  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
-}
-
-nav a.current {
-  border-bottom: 3px solid var(--color-accent);
-}
+nav a.current{ border-bottom:3px solid var(--color-accent); }
 
 /* ========= 聯絡表單 ========= */
 
-form {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1em;
-  align-items: center;
+form{ display:grid; grid-template-columns:auto 1fr; gap:1em; align-items:center; }
+label{ grid-column:1; margin-block:.25em; }
+
+input,textarea,button{
+  grid-column:2; width:100%; font:inherit; box-sizing:border-box;
 }
 
-label { grid-column: 1; margin-block: 0.25em; }
-
-input,
-textarea,
-button {
-  grid-column: 2;
-  width: 100%;
-  font: inherit;
-  box-sizing: border-box;
-}
-
-button {
-  grid-column: 1 / -1;
-  padding: 0.5em;
-}
+button{ grid-column:1 / -1; padding:.5em; }
 
 /* ========= Projects 卡片 ========= */
 
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-  gap: 1em;
-  margin-block: 2em;
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(15em,1fr));
+  gap:1em; margin-block:2em;
 }
 
-.projects article {
-  display: grid;
-  grid-template-rows: subgrid;
-  grid-row: span 3;
-  padding: 1em;
-  border: 1px solid var(--border-color);          /* 同樣用變數 */
-  border-radius: 0.5em;
-  background-color: oklch(98% 3% 0 / 0.9);        /* 微透明，暗色下較柔 */
-  transition: transform .2s ease, box-shadow .2s ease;
+.projects article{
+  display:grid; grid-template-rows:subgrid; grid-row:span 3;
+  padding:1em;
+  border:1px solid var(--border-color);
+  border-radius:.5em;
+  background-color:oklch(98% 3% 0 / .9);
+  transition:transform .2s ease, box-shadow .2s ease;
 }
-
-.projects article:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(0 0 0 / .15);
+.projects article:hover{
+  transform:translateY(-4px);
+  box-shadow:0 4px 12px rgba(0 0 0 / .15);
 }
+.projects article h2{ margin:0; font-size:1.2em; line-height:1.2; text-wrap:balance; }
+.projects article img{ max-width:100%; height:auto; }
 
-.projects article h2 {
-  margin: 0;
-  font-size: 1.2em;
-  line-height: 1.2;
-  text-wrap: balance;
-}
-
-.projects article img {
-  max-width: 100%;
-  height: auto;
-}
-
-h1 { font-size: 2.5em; line-height: 1.1; text-wrap: balance; }
-h2 { font-size: 1.5em; line-height: 1.2; text-wrap: balance; }
+h1{ font-size:2.5em; line-height:1.1; text-wrap:balance; }
+h2{ font-size:1.5em; line-height:1.2; text-wrap:balance; }
