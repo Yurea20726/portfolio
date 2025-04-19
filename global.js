@@ -13,19 +13,24 @@ const pages = [
 const BASE_PATH =
   (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
     ? '/'
-    : '/portfolio/';            // ← GitHub Pages 路徑
+    : '/portfolio/';            // ← GitHub Pages 子資料夾
 
 const nav = document.createElement('nav');
 document.body.prepend(nav);
 
 for (const p of pages) {
   const href = p.url.startsWith('http') ? p.url : BASE_PATH + p.url;
-  const a = document.createElement('a');
-  a.href = href;
+  const a    = document.createElement('a');
+  a.href        = href;
   a.textContent = p.title;
 
-  if (a.host !== location.host) { a.target = '_blank'; a.rel = 'noopener'; }
+  /* 外部連結 → 新分頁開 */
+  if (a.host !== location.host) {
+    a.target = '_blank';
+    a.rel    = 'noopener';
+  }
 
+  /* 高亮目前頁 */
   const same =
     new URL(a.href).pathname.replace(/index\.html$/, '') ===
     location.pathname.replace(/index\.html$/, '');
@@ -35,7 +40,7 @@ for (const p of pages) {
 }
 
 /* ===== 2. 主題切換 (Auto / Light / Dark) ===== */
-// 2‑1  插入 UI
+/* 2‑1  插入 UI（右上角） */
 const label = document.createElement('label');
 label.className = 'color-scheme';
 label.innerHTML = `
@@ -49,28 +54,27 @@ document.body.prepend(label);
 
 const select = document.getElementById('theme-select');
 
-// 2‑2  初始：讀 localStorage
-const saved = localStorage.getItem('theme') || 'auto';
+/* 2‑2  初始：讀 localStorage */
+const saved = localStorage.getItem('colorScheme') || 'auto';
 select.value = saved;
 applyTheme(saved);
 
-// 2‑3  事件監聽
+/* 2‑3  事件監聽：變更 → 寫入 localStorage */
 select.addEventListener('input', e => {
-  const mode = e.target.value;            // auto | light | dark
-  localStorage.setItem('theme', mode);
+  const mode = e.target.value;                   // auto | light | dark
+  localStorage.setItem('colorScheme', mode);     //  ← 鍵名改這裡
   applyTheme(mode);
 });
 
-// 2‑4  主題套用
+/* 2‑4  套用主題 */
 function applyTheme(mode) {
   const root = document.documentElement;
 
-  // 先清空
   root.style.removeProperty('color-scheme');
   root.removeAttribute('data-theme');
 
   if (mode !== 'auto') {
-    root.style.setProperty('color-scheme', mode); // 強制
+    root.style.setProperty('color-scheme', mode); // 強制 light / dark
     root.setAttribute('data-theme', mode);        // 若 CSS 需要
   }
 }
