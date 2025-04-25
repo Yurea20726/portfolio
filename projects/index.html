@@ -7,9 +7,7 @@
 
   <link rel="stylesheet" href="../style.css" />
 
-
-
-  <!-- 全站共用 JS：會自動建立 <nav> 並標記 current -->
+  <!-- 全站共用 JS（建立 nav + 主題切換） -->
   <script type="module" src="../global.js"></script>
 </head>
 <body>
@@ -20,68 +18,9 @@
   <main>
     <h1>Projects</h1>
     <section class="projects">
-      <!-- 你的 project 內容保留原狀 -->
-      <article>
-        <h2>Project One</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Placeholder" />
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      </article>
-      <article>
-        <h2>Data Dashboard</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Placeholder" />
-        <p>Repellat libero quasi minus exercitationem temporibus blanditiis.</p>
-      </article>
-      <article>
-        <h2>Visualization Toolkit</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Placeholder" />
-        <p>Illo eligendi aliquam sequi distinctio molestiae eaque.</p>
-      </article>
-      <article>
-        <h2>Machine Learning App</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Placeholder" />
-        <p>Laborum officiis beatae tenetur quos at facilis.</p>
-      </article>
-      <article>
-        <h2>Student Survey Analysis</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Placeholder" />
-        <p>Molestias error suscipit labore assumenda reprehenderit esse.</p>
-      </article>
-      <article>
-        <h2>Sales Forecasting</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Placeholder" />
-        <p>Sint natus inventore quidem quas dolore officia.</p>
-      </article>
-      <article>
-        <h2>Interactive Map</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Placeholder" />
-        <p>Quidem a illum eveniet tempora nulla deserunt.</p>
-      </article>
-      <article>
-        <h2>Sports Analytics</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Placeholder" />
-        <p>Quisquam voluptates maiores voluptate omnis explicabo?</p>
-      </article>
-      <article>
-        <h2>Financial Explorer</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Placeholder" />
-        <p>Aut dolorem nihil voluptatum maxime velit quia.</p>
-      </article>
-      <article>
-        <h2>COVID Data Tracker</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Placeholder" />
-        <p>Quasi neque ullam aperiam voluptatibus tenetur rem.</p>
-      </article>
-      <article>
-        <h2>Bubble Tea Finder</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Placeholder" />
-        <p>Est tempora impedit error voluptatum praesentium vel.</p>
-      </article>
-      <article>
-        <h2>Portfolio Generator</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Placeholder" />
-        <p>Deleniti exercitationem fuga expedita ex minus modi.</p>
-      </article>
-      <!-- 其餘 articles ... -->
+      <!-- ❌ 把這些舊的 article 全部刪掉！ -->
+
+      <!-- ✅ 留空，JavaScript 會自己插入 projects -->
     </section>
   </main>
 
@@ -89,5 +28,8 @@
     <hr />
     <p>&copy; 2025 Chang‑Yu Lee</p>
   </footer>
+
+  <!-- 注意：這個一定要放在 body 最後 -->
+  <script type="module" src="projects.js"></script>
 </body>
 </html>

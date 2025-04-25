@@ -79,3 +79,62 @@ function applyTheme(mode) {
     root.setAttribute('data-theme', mode);        // 如果 CSS 需要用到
   }
 }
+
+/* ===== 3. 載入 JSON 資料用的工具函式 ===== */
+export async function fetchJSON(url) {
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch projects: ${response.statusText}`);
+    }
+
+    // 可選：開發時確認 response
+    console.log(response);
+
+    const data = await response.json();
+    return data;
+
+  } catch (error) {
+    console.error('Error fetching or parsing JSON data:', error);
+  }
+}
+
+export function renderProjects(projects, container, headingLevel = 'h2') {
+  // 1. 防呆驗證
+  if (!Array.isArray(projects)) {
+    console.error('renderProjects: projects should be an array.');
+    return;
+  }
+  if (!(container instanceof Element)) {
+    console.error('renderProjects: container is not a valid DOM element.');
+    return;
+  }
+  if (!/^h[1-6]$/.test(headingLevel)) {
+    console.warn(`Invalid headingLevel "${headingLevel}", falling back to <h2>`);
+    headingLevel = 'h2';
+  }
+
+  // 2. 清空原本內容
+  container.innerHTML = '';
+
+  // 3. 動態渲染每個專案
+  for (const project of projects) {
+    const article = document.createElement('article');
+    article.className = 'project-card';
+
+    const title = project.title || 'Untitled';
+    const image = project.image || 'https://via.placeholder.com/300x200?text=No+Image';
+    const description = project.description || 'No description available.';
+
+    article.innerHTML = `
+      <${headingLevel}>${title}</${headingLevel}>
+      <img src="${image}" alt="${title}">
+      <p>${description}</p>
+    `;
+
+    container.appendChild(article);
+  }
+}
+
+
