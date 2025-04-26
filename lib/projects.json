@@ -1,62 +1,75 @@
 [
     {
-        "title": "Project One",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+      "title": "Project One",
+      "year": "2022",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
     },
     {
-        "title": "Data Dashboard",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Repellat libero quasi minus exercitationem temporibus blanditiis."
+      "title": "Data Dashboard",
+      "year": "2023",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Repellat libero quasi minus exercitationem temporibus blanditiis."
     },
     {
-        "title": "Visualization Toolkit",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Illo eligendi aliquam sequi distinctio molestiae eaque."
+      "title": "Visualization Toolkit",
+      "year": "2024",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Illo eligendi aliquam sequi distinctio molestiae eaque."
     },
     {
-        "title": "Machine Learning App",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Laborum officiis beatae tenetur quos at facilis."
+      "title": "Machine Learning App",
+      "year": "2023",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Laborum officiis beatae tenetur quos at facilis."
     },
     {
-        "title": "Student Survey Analysis",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Molestias error suscipit labore assumenda reprehenderit esse."
+      "title": "Student Survey Analysis",
+      "year": "2022",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Molestias error suscipit labore assumenda reprehenderit esse."
     },
     {
-        "title": "Sales Forecasting",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Sint natus inventore quidem quas dolore officia."
+      "title": "Sales Forecasting",
+      "year": "2024",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Sint natus inventore quidem quas dolore officia."
     },
     {
-        "title": "Interactive Map",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Quidem a illum eveniet tempora nulla deserunt."
+      "title": "Interactive Map",
+      "year": "2022",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Quidem a illum eveniet tempora nulla deserunt."
     },
     {
-        "title": "Sports Analytics",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Quisquam voluptates maiores voluptate omnis explicabo?"
+      "title": "Sports Analytics",
+      "year": "2023",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Quisquam voluptates maiores voluptate omnis explicabo?"
     },
     {
-        "title": "Financial Explorer",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Aut dolorem nihil voluptatum maxime velit quia."
+      "title": "Financial Explorer",
+      "year": "2024",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Aut dolorem nihil voluptatum maxime velit quia."
     },
     {
-        "title": "COVID Data Tracker",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Quasi neque ullam aperiam voluptatibus tenetur rem."
+      "title": "COVID Data Tracker",
+      "year": "2023",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Quasi neque ullam aperiam voluptatibus tenetur rem."
     },
     {
-        "title": "Bubble Tea Finder",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Est tempora impedit error voluptatum praesentium vel."
+      "title": "Bubble Tea Finder",
+      "year": "2022",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Est tempora impedit error voluptatum praesentium vel."
     },
     {
-        "title": "Portfolio Generator",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Deleniti exercitationem fuga expedita ex minus modi."
+      "title": "Portfolio Generator",
+      "year": "2024",
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "Deleniti exercitationem fuga expedita ex minus modi."
     }
-]
+  ]
+  
