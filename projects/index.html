@@ -12,16 +12,15 @@
 </head>
 <body>
   <header>
-    <!-- nav 會由 global.js 動態插入，這裡留空即可 -->
+    <!-- nav 會由 global.js 動態插入 -->
   </header>
 
   <main>
-    <h1>Projects</h1>
-    <section class="projects">
-      <!-- ❌ 把這些舊的 article 全部刪掉！ -->
+    <!-- ✅ 加 class，供 JS 顯示 project 數量 -->
+    <h1 class="projects-title">Projects</h1>
 
-      <!-- ✅ 留空，JavaScript 會自己插入 projects -->
-    </section>
+    <!-- ✅ 卡片容器（由 JS 動態插入） -->
+    <section class="projects"></section>
   </main>
 
   <footer>
@@ -29,7 +28,8 @@
     <p>&copy; 2025 Chang‑Yu Lee</p>
   </footer>
 
-  <!-- 注意：這個一定要放在 body 最後 -->
+  <!-- ✅ 放在最後，讓 JS 抓到 DOM 元素 -->
   <script type="module" src="projects.js"></script>
 </body>
 </html>
+
