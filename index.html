@@ -6,7 +6,6 @@
   <title>Chang‑Yu Lee: Personal site and portfolio</title>
 
   <link rel="stylesheet" href="style.css" />
-  <!-- 全站共用 JS（插入 nav + 主題切換） -->
   <script type="module" src="global.js"></script>
 </head>
 <body>
@@ -19,10 +18,13 @@
     <p>Hi! I’m an international student from Taiwan!</p>
     <img src="images/Cartethyia.jpg" alt="A character named Cartethyia" />
 
-    <!-- ✅ 新增專案展示區塊 -->
+    <!-- ✅ GitHub 資料展示 -->
+    <div id="profile-stats"></div>
+
+    <!-- ✅ 專案展示區塊 -->
     <h2>Latest Projects</h2>
     <div class="projects">
-      <!-- JavaScript will dynamically insert project cards here -->
+      <!-- JavaScript 會動態插入前三個專案卡片 -->
     </div>
   </main>
 
@@ -31,7 +33,7 @@
     <p>&copy; 2025 Chang‑Yu Lee</p>
   </footer>
 
-  <!-- ✅ 加上 index.js：載入並渲染前3個專案 -->
+  <!-- ✅ 首頁專用 JS -->
   <script type="module" src="index.js"></script>
 </body>
 </html>

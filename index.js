@@ -1,17 +1,27 @@
-import { fetchJSON, renderProjects } from './global.js';
+import { fetchJSON, renderProjects, fetchGitHubData } from './global.js';
 
 async function main() {
-  // 1. 讀取所有專案
+  // 最新專案（前3個）
   const projects = await fetchJSON('./lib/projects.json');
-
-  // 2. 取前三個（或更少）
   const latestProjects = projects.slice(0, 3);
-
-  // 3. 找到 .projects 容器
   const container = document.querySelector('.projects');
-
-  // 4. 渲染最新的專案
   renderProjects(latestProjects, container, 'h2');
+
+  // GitHub 資料
+  const githubData = await fetchGitHubData('Yurea20726'); // ⬅️ 請改成你自己的 GitHub 帳號
+  const profileStats = document.querySelector('#profile-stats');
+
+  if (profileStats) {
+    profileStats.innerHTML = `
+      <h2>My GitHub Stats</h2>
+      <dl class="github-grid">
+        <dt>Followers</dt><dd>${githubData.followers}</dd>
+        <dt>Following</dt><dd>${githubData.following}</dd>
+        <dt>Public Repos</dt><dd>${githubData.public_repos}</dd>
+        <dt>Public Gists</dt><dd>${githubData.public_gists}</dd>
+      </dl>
+    `;
+  }
 }
 
 main();

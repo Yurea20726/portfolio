@@ -148,3 +148,26 @@ h2 {
   line-height: 1.2;
   text-wrap: balance;
 }
+
+.github-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+  margin-top: 1rem;
+  gap: 1em;
+}
+
+.github-grid dt {
+  font-weight: bold;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  grid-row: 1;
+}
+
+.github-grid dd {
+  margin: 0;
+  font-size: 1.6em;
+  font-weight: bold;
+  grid-row: 2;
+}
+
