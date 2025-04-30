@@ -1,4 +1,4 @@
-import { fetchJSON, renderProjects } from '../global.js';
+;import { fetchJSON, renderProjects } from '../global.js';
 
 async function main() {
   // 1. 載入 JSON 專案資料
