@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project 2 Report</title>
+
+    <style>
+      :root {
+        --color-neutral-95: hsl(220 10% 95%);
+        --color-neutral-90: hsl(220 10% 90%);
+        --color-neutral-80: hsl(220 10% 80%);
+        --color-neutral-70: hsl(220 10% 70%);
+        --color-neutral-60: hsl(220 10% 60%);
+        --color-neutral-50: hsl(220 10% 50%);
+        --color-neutral-40: hsl(220 10% 40%);
+        --color-neutral-30: hsl(220 10% 30%);
+        --color-neutral-20: hsl(220 10% 20%);
+        --color-neutral-10: hsl(220 10% 10%);
+      }
+
+      html {
+        font: 100%/1.5 system-ui;
+        counter-reset: figure;
+        background: var(--color-neutral-95);
+        max-width: min(75vw, 80em);
+        margin: 0 auto;
+      }
+
+      /* Headings */
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: 1.1;
+        font-weight: 600;
+        text-wrap: balance;
+      }
+
+      h1,
+      h2 {
+        border-bottom: 1px solid var(--color-neutral-80);
+        padding-bottom: 0.2em;
+      }
+
+      h1 {
+        margin-block: 1em 0.5rem;
+        font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+        font-weight: 800;
+
+        small {
+          display: block;
+          width: fit-content;
+          padding: 0.2em 0.5em;
+          margin-inline: auto;
+          color: white;
+          background: var(--color-neutral-40);
+          font-size: 40%;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      }
+
+      h2 {
+        font-size: 180%;
+        color: var(--color-neutral-30);
+      }
+
+      h3 {
+        font-size: 130%;
+      }
+
+      /* Lists */
+
+      ul,
+      ol {
+        padding-inline-start: 2em;
+      }
+
+      li {
+        &::marker {
+          color: var(--color-neutral-40);
+        }
+
+        + li {
+          margin-top: 0.2em;
+        }
+      }
+
+      /* Sectioning elements */
+
+      header {
+        padding-block: 1em;
+        text-align: center;
+      }
+
+      main {
+        background: white;
+        color: var(--color-neutral-20);
+        border-radius: 1rem;
+        padding: 0.1rem 2rem;
+      }
+
+      /* Figures */
+
+      figure {
+        margin: 1em 0;
+        padding: 0.5rem;
+        margin-inline: -0.5em;
+        border: 1px solid var(--color-neutral-80);
+        box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+        text-align: center;
+        background: white;
+
+        > figcaption {
+          font: 500 75% var(--font-sans);
+          background: var(--color-neutral-95);
+          padding: 0.5rem;
+          margin: -0.5rem;
+          margin-top: 0.5rem;
+          counter-increment: figure;
+          text-align: left;
+
+          &::before {
+            content: 'Figure ' counter(figure) ': ';
+            font-weight: bold;
+            color: var(--color-neutral-40);
+          }
+
+          a:not(:hover, :focus, :active) {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: color-mix(
+              in lab,
+              currentColor,
+              transparent 70%
+            );
+          }
+        }
+      }
+
+      table {
+        border-collapse: collapse;
+        border: 2px solid rgb(140 140 140);
+        font-family: sans-serif;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+      }
+
+      caption {
+        caption-side: bottom;
+        padding: 10px;
+        font-weight: bold;
+      }
+
+      thead,
+      tfoot {
+        background-color: rgb(228 240 245);
+      }
+
+      th,
+      td {
+        border: 1px solid rgb(160 160 160);
+        padding: 8px 10px;
+      }
+
+      td:last-of-type {
+        text-align: center;
+      }
+
+      tbody > tr:nth-of-type(even) {
+        background-color: rgb(237 238 242);
+      }
+
+      tfoot th {
+        text-align: right;
+      }
+
+      tfoot td {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <small>Project 2</small>
+        Persuasive or Deceptive Visualization?
+      </h1>
+
+      <p><strong>Chang-Yu Lee</strong> — <em>chl318@ucsd.edu</em></p>
+    </header>
+
+    <main>
+      <h2>Proposition</h2>
+      
+      <div style="text-align: center; font-size: 20px;"><em>Is the overall economic performance under NAFTA characterized by growth or decline?</em></div>
+
+      <h2>Dataset</h2> 
+      <p>I selected the <a href="https://github.com/light-and-salt/World-Bank-Data-by-Indicators/tree/master/economy-and-growth">“economy-and-growth”</a> part from the first dataset <a href="https://github.com/light-and-salt/World-Bank-Data-by-Indicators">"Human Development Indicators, 1960–2020."</a>. It comprises a range of economic development indicators across multiple countries and regions spanning the past several decades.</p>
+      <p>The following parameters were extracted.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Column</th>
+            <th>Item</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Country Name</th>
+            <th>Canada, Mexico, United States, World</th>
+          </tr>
+          <tr>
+            <th>Indicator Code</th>
+            <th>NY.[GDP|GNP].MKTP.[CD|KD]</th>
+          </tr>
+        </tbody>
+      </table>
+      
+      <p>Note that the original dataset does not include an entry for NAFTA. The below figures were derived by aggregating data from Canada, Mexico, and the United States.</p>
+
+      <h2>Visualization</h2>
+      <section>
+        <h3>Affirmative Side</h3>
+
+        <figure>
+          <img src="../images/figure1.png" style="width: 100%; height: auto" alt="" />
+          <figcaption>Between 1999 and 2019, NAFTA's nominal GDP/GNP increased by 120%.</figcaption>
+        </figure>
+
+        <h4>Interpretation</h4>
+
+        <ul>
+          <li>NAFTA demonstrated consistent and substantial economic growth.</li>
+          <li>NAFTA maintains a prominent role within the global economic system.</li>
+        </ul>
+
+        <h4>Design Decisions and Rationale</h4>
+
+        <ul>
+          <li>(+2.0) <strong>Shift X-axis</strong>: Because the original dataset provided only GDP data for 2020 and did not include GNP data, we shifted the time range 1 year earlier.</li>
+          <li>(+1.0) <strong>Line charts</strong>: Simple line graphs were used to facilitate immediate recognition of overarching trends. Although we could add some graphic design elements to make this image more visually appealing.</li>
+          <li>(-1.0) <strong>Emotionally suggestive titles</strong>:  Red typography—commonly associated with optimism, vitality, and economic prosperity—alongside positively connoted terms such as "Boom" and "120%".</li>
+          <li>(-1.0) <strong>Truncated Y-axis</strong>: Intentionally cropped and enlarged the Y-axis scale to exaggerate the perceived rate of growth, ensuring that the graphical trajectory extended sharply from the lower left to the upper right. Aimed to convey a stronger impression of economic expansion.</li>
+          <li>(-2.0) <strong>Application of fundamental economic principles</strong>: If readers lack a basic understanding of economics, they are more likely to be misled.</li>
+          <ul>
+              <li>Presenting only the nominal GDP/GNP, which exhibited a greater rate of growth, while omitting the real GDP/GNP, which would have more accurately reflected the actual economic conditions but showed a more modest growth rate.</li>
+              <li>GDP/GNP are considered similar economic indicators, with only minor differences in their values. As such, comparing the two carries limited analytical significance. Nevertheless, to readers who are not well-versed in economics, presenting both may create the impression of offering additional evidence to substantiate the claim.</li>
+          </ul>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Negative Side</h3>
+        
+        <figure>
+          <img src="../images/figure2.png" style="width: 100%; height: auto" alt="" />
+          <figcaption>Between 1999 and 2019, NAFTA's share of global real GDP/GNP decreased by 4%.</figcaption>
+        </figure>
+
+        <h4>Interpretation</h4>
+        <ul>
+          <li>NAFTA exhibited signs of stagnation or even decline.</li>
+          <li>NAFTA's status in the international economy is diminishing.</li>
+        </ul>
+
+        <h4>Design Decisions and Rationale</h4>
+
+        <ul>
+          <li>(+2.0) <strong>Shift X-axis</strong>: Same reason as above.</li>
+          <li>(+1.0) <strong>Line charts</strong>: Same reason as above.</li>
+          <li>(-1.0) <strong>Emotionally suggestive titles</strong>: Dark blue hues— symbolizing pessimism and decline—paired with terms like "Diminishing" and "Declining".</li>
+          <li>(-1.0) <strong>Truncated Y-axis</strong>: In contrast to the above, the pattern moves from the top left to the bottom right to convey an impression of economic decline.</li>
+          <li>(-2.0) <strong>Absolute versus relative</strong>: When comparing the changes of an individual and the overall over a period of time, the trends in absolute and relative values may appear to move in opposite directions. As shown in Figure 1, NAFTA's GDP/GNP has consistently grown over time. However, its individual growth rate has lagged behind that of the global economy. As a result, NAFTA’s share of the global total has actually declined.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Final Reflection</h2>
+
+        <p>While designing these visualizations, I realized that different methods of presenting the same data can significantly influence how readers absorb and interpret information. Elements such as color, pattern, wording, tone, size, and orientation—though unrelated to the core message of the dataset—can greatly impact the effectiveness of communication.</p>
+
+        <p>Moreover, the selection and filtering of data may be equally, if not more, important. In economics, for example, there are numerous commonly used indicators such as GDP, GNP, and GNI. From these raw values, we can derive countless secondary metrics—per capita values, annual growth rates, global share ratios, and so on. Even for an economist, interpreting what these numbers truly represent and how to make sense of them can be a complex task.</p>
+          
+        <p>However, when readers lack domain knowledge, they may be easily misled by selectively presented data, forming a skewed or oversimplified understanding. As illustrated above, two sets of indicators may be used to persuade the audience toward two entirely different conclusions, without the readers even realizing that their perceptions have been manipulated. Fake data is a crude form of deception because it can be challenged and debunked by factual information. What is far more sophisticated is the omission of data, because you often have no way of knowing that something is missing. You are left with no choice but to trust only what is visible.</p>
+      </section>
+    </main>
+  </body>
+</html>
