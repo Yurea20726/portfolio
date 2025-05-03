@@ -6,8 +6,6 @@
   <title>Projects</title>
 
   <link rel="stylesheet" href="../style.css" />
-
-  <!-- 全站共用 JS（建立 nav + 主題切換） -->
   <script type="module" src="../global.js"></script>
 </head>
 <body>
@@ -16,10 +14,19 @@
   </header>
 
   <main>
-    <!-- ✅ 加 class，供 JS 顯示 project 數量 -->
+    <!-- ✅ 專案數量會動態插入 -->
     <h1 class="projects-title">Projects</h1>
 
-    <!-- ✅ 卡片容器（由 JS 動態插入） -->
+    <!-- ✅ 圓餅圖置中 -->
+    <div class="projects-chart">
+      <svg id="projects-plot" viewBox="0 0 100 100"></svg>
+      <ul class="legend"></ul>
+    </div>
+
+    <!-- ✅ 圖例 -->
+    
+
+    <!-- ✅ 專案卡片容器 -->
     <section class="projects"></section>
   </main>
 
@@ -28,7 +35,7 @@
     <p>&copy; 2025 Chang‑Yu Lee</p>
   </footer>
 
-  <!-- ✅ 放在最後，讓 JS 抓到 DOM 元素 -->
+  <!-- ✅ 載入 D3 + 圖表 JS -->
   <script type="module" src="projects.js"></script>
 </body>
 </html>
