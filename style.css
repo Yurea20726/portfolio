@@ -210,3 +210,36 @@ h2 {
   background-color: var(--color);
   border-radius: 0.25em;
 } 
+
+.projects-chart {
+  display: flex;           /* 啟用 Flexbox */
+  align-items: flex-start; /* 垂直對齊：頂對齊，可改成 center */
+  gap: 1.5rem;             /* 圓餅圖與圖例之間的間距 */
+  flex-wrap: wrap;         /* 窄螢幕時自動換行，保持可讀 */
+  width: 100%;             /* 滿版寬度 */
+  box-sizing: border-box;
+}
+
+/* --- 移掉 svg 預設的上下 margin，並維持寬度比例 --- */
+#projects-plot {
+  margin-block: 0;        /* 取消多餘的上下 margin */
+  /* 你原本有 max-width:20em, 保留即可 */
+  flex: 0 0 auto;         /* 固定大小、不被拉伸 */
+}
+
+/* --- 讓 legend 佔滿剩餘空間，並取消頂部 margin --- */
+.projects-chart .legend {
+  flex: 1 1 0;            /* 伸縮都可，撐滿剩下空間 */
+  margin-top: 0;          /* 取消原本的 1em top margin */
+}
+
+/* ===== 搜尋欄 ===== */
+.searchBar {
+  flex-basis: 100%;
+  max-width: 300px;
+  padding: .5em;
+  font-size: 1em;
+  border: 1px solid var(--border-color);
+  border-radius: .25em;
+  margin-top: 1em;
+}
