@@ -14,10 +14,10 @@
   </header>
 
   <main>
-    <!-- ✅ 專案數量會動態插入 -->
+    <!-- 1. 標題 -->
     <h1 class="projects-title">Projects</h1>
 
-    <!-- ✅ 圓餅圖置中 -->
+    <!-- 2. 圓餅圖＋圖例＋搜尋欄放同一個容器 -->
     <div class="projects-chart">
       <svg id="projects-plot" viewBox="0 0 100 100"></svg>
       <ul class="legend"></ul>
@@ -30,20 +30,16 @@
       />
     </div>
 
-    <!-- ✅ 圖例 -->
-    
-
-    <!-- ✅ 專案卡片容器 -->
+    <!-- 3. 專案卡片容器 -->
     <section class="projects"></section>
   </main>
 
   <footer>
     <hr />
-    <p>&copy; 2025 Chang‑Yu Lee</p>
+    <p>&copy; 2025 Chang-Yu Lee</p>
   </footer>
 
-  <!-- ✅ 載入 D3 + 圖表 JS -->
+  <!-- 最後載入 D3 + 自己的 charts/js -->
   <script type="module" src="projects.js"></script>
 </body>
 </html>
-
