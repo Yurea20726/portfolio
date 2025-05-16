@@ -70,6 +70,13 @@
       "year": "2024",
       "image": "https://vis-society.github.io/labs/2/images/empty.svg",
       "description": "Deleniti exercitationem fuga expedita ex minus modi."
-    }
+    },
+      {
+      "title": "Bikewatching",
+      "year": "2025",
+      "image": "images/bikewatching.png",
+      "description": "An interactive visualization of Bluebike traffic using Mapbox and D3.js.",
+      "url": "https://yurea20726.github.io/bikewatching/"
+   }
   ]
   
