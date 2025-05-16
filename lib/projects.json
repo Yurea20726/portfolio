@@ -74,7 +74,7 @@
       {
       "title": "Bikewatching",
       "year": "2025",
-      "image": "images/bikewatching.png",
+      "image": "../images/bikewatching.png",
       "description": "An interactive visualization of Bluebike traffic using Mapbox and D3.js.",
       "url": "https://yurea20726.github.io/bikewatching/"
    }
