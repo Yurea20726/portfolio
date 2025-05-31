@@ -7,7 +7,17 @@
 </head>
 <body>
   <h1>Meta Commit Summary</h1>
+  <dl id="files"></dl>
   <dl id="stats" class="stats"></dl>
+  
+
+  <!-- Time slider control -->
+  <div style="display: flex; align-items: baseline; margin-bottom: 1rem;">
+    <label for="commit-progress" style="margin-right: 1rem;">Show commits until:</label>
+    <input id="commit-progress" type="range" min="0" max="100" value="100" style="flex: 1;" />
+    <time id="commit-time" style="margin-left: auto;"></time>
+  </div>
+
 
   <h2>Commits by time of day</h2>
   <div id="chart"></div>
